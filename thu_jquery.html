@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <ul id="basic">
+        <li class="java">Nguyễn Văn An</li>
+        <li class="app">Nguyễn Văn Ba</li>
+        <li class="java">Nguyễn Văn Ca</li>
+        <li class="app">Nguyễn Văn Da</li>
+    </ul>
+    <div class="text-center">
+        <p>Nguyễn Văn E</p>
+        <p id="tag">Nguyễn Văn F</p>
+        <p class="java">Nguyễn Văn G</p>
+        <p>Nguyễn Văn H</p>
+        <p class="app">Nguyễn Văn I</p>
+    </div>
+    <script src="./thuvien/jquery-3.7.1.min.js"></script>
+    <script>
+        // jquery here....
+        // B1 các thẻ p
+        $(document).ready (function () {
+        $("p").css('boder', '1px solid palevioletred')
+        $("tag").css('boder', '1px solid red')
+        $("java").css('boder', '1px solid blue')
+        $("app").css('boder', '1px solid green')
+        })
+    </script>
+</body>
+</html>

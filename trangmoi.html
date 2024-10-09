@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mr-100 {
+            margin-right: 100px;
+        }
+        #comment {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        #thong-tin-binh-luan {
+            display: flex;
+        }
+        .xoa-binh-luan {
+
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="danh-sach-binh-luan">
+            <div id="thong-tin-binh-luan">
+                <p class="mr-100">Tên</p>
+                <p class="mr-100">Ngày giờ</p>
+                <button class="xoa-binh-luan">Xóa</button>
+            </div>
+            <div id="noi-dung">Bình luận</div>
+        </div>
+    
+        <form action="">
+            <div id="o-binh-luan">
+                <hr>
+                <h3>Leave a Reply</h3>
+                <label for="comment">Comment</label> <br>
+                <input id="comment" type="text"> <br>
+        
+                <button id="nut-binh-luan" class="btn btn-primary">Bình luận</button>
+            </div> 
+        </form>
+    </div>
+    
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./jquery2.validate.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // $(document).on('dblclick' , '#nut-binh-luan', function () {
+            //   alert('anabelle')
+            // })
+
+            // $(document).on('change','#comment', function () {
+            //   console.log(
+            //        document.getElementById('comment').value
+            //    );
+            // })
+
+            // $(document).on('keyup', '#comment', function(){
+            //      console.log(
+            //          $(this).val()
+            //      );
+            // })
+
+            // $(document).on('sự_kiện', 'bộ_chọn', function (){
+            // })
+
+            // Tắt bình luận
+            $(document).on('click' , '#nut-binh-luan', function () {
+                $('#nut-binh-luan').attr('disabled',false)
+                $('#comment').attr('disabled', false)
+
+            // Lấy thời gian hiện tại
+            let today = new Date();
+
+            // Thêm comment lên trên danh sách
+                $('#danh-sach-binh-luan').append(`
+                    <div id="binh-luan">
+                        <div id="thong-tin-binh-luan">
+                            <p class="mr-100">Tên</p>
+                            <p class="mr-100">` + today + `</p>
+                            <button class="xoa-binh-luan">Xóa</button>
+                        </div>
+                    <div id="noi-dung">` + $('#comment').val() + `</div>
+                    </div>
+                `)
+
+            // Xóa comment người dùng đã bình luận
+                $('#comment').val('')
+            })
+
+            // Click xóa
+            $(document).on('click', '.xoa-binh-luan', function () {
+                $('#binh-luan').remove()
+            })
+
+        });
+    </script>
+</body>
+</html>
